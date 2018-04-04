@@ -32,6 +32,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'user.UserCenter'
+
 
 # Application definition
 
@@ -42,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'goods',
+    'trade',
+    'user',
+    'user_operation'
 ]
 
 MIDDLEWARE = [
