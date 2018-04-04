@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'goods',
     'trade',
     'user',
-    'user_operation'
+    'user_operation',
 ]
 
 MIDDLEWARE = [
