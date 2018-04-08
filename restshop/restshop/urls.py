@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from goods.view_base import CateListView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    # 商品类别
+    url(r'api/cate/$', CateListView.as_view(), name="cate.list"),
 ]
