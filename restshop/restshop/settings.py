@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'trade',
     'user',
     'user_operation',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

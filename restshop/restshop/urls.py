@@ -13,13 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework.documentation import include_docs_urls
 from goods.view_base import CateListView
+from goods.views import GoodCateList
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # 商品类别
-    url(r'api/cate/$', CateListView.as_view(), name="cate.list"),
+    url(r'api/cate/$', GoodCateList.as_view(), name="cate.list"),
+
+    # 文档
+    url(r'doc/', include_docs_urls(title='shop')),
+
+    # 调试接口
+    url(r'^api-auth/', include('rest_framework.urls'))
 ]
