@@ -9,9 +9,7 @@
 # @license : 娱网科道信息技术有限公司 copyright © 2015-2016
 
 from rest_framework import serializers
-from .models import Goods, GoodCategory
-
-
+from .models import Goods, GoodCategory, GoodsImage
 
 
 class Goodcateserializer(serializers.ModelSerializer):
@@ -23,6 +21,22 @@ class Goodcateserializer(serializers.ModelSerializer):
     # name = serializers.CharField(max_length=32, required=True)
     # code = serializers.CharField(max_length=32)
     class Meta:
+        model = GoodCategory()
+        fields = '__all__'
+        # fields = ['category', 'name']
+
+    def create(self, validated_data):
+        return Goods.objects.create(validated_data)
+
+
+class Goodsseralizer(serializers.ModelSerializer):
+    class Meta:
         model = Goods()
-        # fields = '__all__'
-        fields = ['category', 'name']
+        fields = '__all__'
+
+
+class Goodimageseralizer(serializers.ModelSerializer):
+    goods = Goodsseralizer()
+    class Meta:
+        model = GoodsImage()
+        fields = '__all__'

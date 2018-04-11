@@ -17,13 +17,15 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework.documentation import include_docs_urls
 from goods.view_base import CateListView
-from goods.views import GoodCateList
+from goods.views import GoodCateList, GoodsList, Goodsimagelist
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # 商品类别
     url(r'api/cate/$', GoodCateList.as_view(), name="cate.list"),
+    url(r'api/goods/$', GoodsList.as_view(), name='good.list'),
+    url(r'api/goodimgs/$', Goodsimagelist.as_view(), name='goodimg.list'),
 
     # 文档
     url(r'doc/', include_docs_urls(title='shop')),
