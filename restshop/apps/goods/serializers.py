@@ -12,8 +12,6 @@ from rest_framework import serializers
 from .models import Goods, GoodCategory
 
 
-
-
 class Goodcateserializer(serializers.ModelSerializer):
     # CATEGORY_TYPE = (
     #     (1, '一级类目'),
